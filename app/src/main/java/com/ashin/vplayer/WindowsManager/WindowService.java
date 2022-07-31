@@ -110,7 +110,7 @@ public class WindowService extends Service {
         }
         layoutParams.format = PixelFormat.TRANSLUCENT;  //透明
         layoutParams.gravity = Gravity.TOP | Gravity.RIGHT;  //右上角显示
-        inflate = LayoutInflater.from(MyApplication.getContextObject()).inflate(R.layout.tvme_control_view_course, null);
+        //inflate = LayoutInflater.from(MyApplication.getContextObject()).inflate(R.layout.tvme_control_view_course, null);
 
         windowManager.addView(inflate, layoutParams);
     }
