@@ -1,0 +1,19 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml:1:1-36
+INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml:1:1-36
+INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml:1:1-36
+	package
+		ADDED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml:1:11-34
+		INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+		INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml:1:1-36
+uses-sdk
+INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+		ADDED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml
+		INJECTED from /home/yankang/AndroidStudioProjects/smb/Application/NanoHTTPD/src/main/AndroidManifest.xml

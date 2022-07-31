@@ -1,0 +1,58 @@
+org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManager.java
+ org.nanohttpd.protocols.http.tempfiles.DefaultTempFileManager
+org/nanohttpd/protocols/http/tempfiles/DefaultTempFileManagerFactory.java
+ org.nanohttpd.protocols.http.tempfiles.DefaultTempFileManagerFactory
+org/nanohttpd/protocols/http/response/Status.java
+ org.nanohttpd.protocols.http.response.Status
+org/nanohttpd/util/IFactoryThrowing.java
+ org.nanohttpd.util.IFactoryThrowing
+org/nanohttpd/protocols/http/sockets/SecureServerSocketFactory.java
+ org.nanohttpd.protocols.http.sockets.SecureServerSocketFactory
+org/nanohttpd/protocols/http/tempfiles/DefaultTempFile.java
+ org.nanohttpd.protocols.http.tempfiles.DefaultTempFile
+org/nanohttpd/protocols/http/content/Cookie.java
+ org.nanohttpd.protocols.http.content.Cookie
+org/nanohttpd/protocols/http/request/Method.java
+ org.nanohttpd.protocols.http.request.Method
+org/nanohttpd/BuildConfig.java
+ org.nanohttpd.BuildConfig
+org/nanohttpd/protocols/http/content/ContentType.java
+ org.nanohttpd.protocols.http.content.ContentType
+org/nanohttpd/protocols/http/response/IStatus.java
+ org.nanohttpd.protocols.http.response.IStatus
+org/nanohttpd/protocols/http/tempfiles/ITempFile.java
+ org.nanohttpd.protocols.http.tempfiles.ITempFile
+org/nanohttpd/protocols/http/sockets/DefaultServerSocketFactory.java
+ org.nanohttpd.protocols.http.sockets.DefaultServerSocketFactory
+org/nanohttpd/util/IHandler.java
+ org.nanohttpd.util.IHandler
+org/nanohttpd/protocols/http/response/ChunkedOutputStream.java
+ org.nanohttpd.protocols.http.response.ChunkedOutputStream
+org/nanohttpd/util/IFactory.java
+ org.nanohttpd.util.IFactory
+org/nanohttpd/protocols/http/tempfiles/ITempFileManager.java
+ org.nanohttpd.protocols.http.tempfiles.ITempFileManager
+org/nanohttpd/protocols/http/ServerRunnable.java
+ org.nanohttpd.protocols.http.ServerRunnable
+org/nanohttpd/protocols/http/ClientHandler.java
+ org.nanohttpd.protocols.http.ClientHandler
+org/nanohttpd/protocols/http/NanoHTTPD.java
+ org.nanohttpd.protocols.http.NanoHTTPD
+ org.nanohttpd.protocols.http.NanoHTTPD$1
+ org.nanohttpd.protocols.http.NanoHTTPD$ResponseException
+org/nanohttpd/protocols/http/content/CookieHandler.java
+ org.nanohttpd.protocols.http.content.CookieHandler
+org/nanohttpd/protocols/http/IHTTPSession.java
+ org.nanohttpd.protocols.http.IHTTPSession
+org/nanohttpd/protocols/http/response/Response.java
+ org.nanohttpd.protocols.http.response.Response
+ org.nanohttpd.protocols.http.response.Response$1
+ org.nanohttpd.protocols.http.response.Response$GzipUsage
+org/nanohttpd/util/ServerRunner.java
+ org.nanohttpd.util.ServerRunner
+org/nanohttpd/protocols/http/threading/IAsyncRunner.java
+ org.nanohttpd.protocols.http.threading.IAsyncRunner
+org/nanohttpd/protocols/http/HTTPSession.java
+ org.nanohttpd.protocols.http.HTTPSession
+org/nanohttpd/protocols/http/threading/DefaultAsyncRunner.java
+ org.nanohttpd.protocols.http.threading.DefaultAsyncRunner
