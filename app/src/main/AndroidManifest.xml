@@ -21,7 +21,14 @@
         android:theme="@style/Theme.VPlayer"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".QRCodeActivity"
+            android:name=".glideLea.GlideActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".qrCode.QRCodeActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -33,6 +40,10 @@
         <activity
             android:name=".services.TimerActivity"
             android:exported="false" />
+
+        <meta-data
+            android:name="com.ashin.vplayer.glideLea.MyGlideModule"
+            android:value="GlideModule" />
 
         <service
             android:name=".WindowsManager.WindowService"

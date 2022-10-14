@@ -70,4 +70,6 @@ dependencies {
     //二维码生成器
     implementation 'com.google.zxing:core:3.3.0'
 
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
 }

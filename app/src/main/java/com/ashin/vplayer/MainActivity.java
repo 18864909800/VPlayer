@@ -27,6 +27,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ashin.vplayer.Okhttp.OkhttpActivity;
 import com.ashin.vplayer.WindowsManager.WindowReceiver;
+import com.ashin.vplayer.glideLea.GlideActivity;
 import com.ashin.vplayer.listLearn.ListActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
@@ -47,7 +48,8 @@ import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private String TAG = "VPlayer";
+    private String TAG = "VP-MainActivity";
+
     private Button button1;
     private Button button2;
     private Button button3;
@@ -144,6 +146,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.button6:
+                intent = new Intent(MyApplication.getContextObject(), GlideActivity.class);
+                startActivity(intent);
                 break;
             case R.id.button7:
                 break;
