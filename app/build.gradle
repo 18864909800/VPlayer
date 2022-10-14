@@ -67,4 +67,7 @@ dependencies {
 
     implementation 'com.google.android.exoplayer:exoplayer:2.13.2'
 
+    //二维码生成器
+    implementation 'com.google.zxing:core:3.3.0'
+
 }

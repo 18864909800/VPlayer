@@ -21,6 +21,13 @@
         android:theme="@style/Theme.VPlayer"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".QRCodeActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".services.ExoPlayerActivity"
             android:exported="false" />
         <activity
