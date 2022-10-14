@@ -22,5 +22,6 @@ public class MyGlideModule implements GlideModule {
         builder.addInterceptor(new ProgressInterceptor());
         OkHttpClient okHttpClient = builder.build();
         glide.register(GlideUrl.class, InputStream.class, new OkHttpGlideUrlLoader.Factory(okHttpClient));
+        glide.register(PhotoData.class, InputStream.class, new OkHttpPhotoDataLoader.Factory(okHttpClient));
     }
 }

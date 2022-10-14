@@ -4,8 +4,8 @@
 4
 5    <uses-sdk
 6        android:minSdkVersion="1"
-6-->/Users/ashin/StudioProjects/VPlayer/NanoHTTPD/src/main/AndroidManifest.xml
+6-->/home/mi/online/VPlayer/NanoHTTPD/src/main/AndroidManifest.xml
 7        android:targetSdkVersion="1" />
-7-->/Users/ashin/StudioProjects/VPlayer/NanoHTTPD/src/main/AndroidManifest.xml
+7-->/home/mi/online/VPlayer/NanoHTTPD/src/main/AndroidManifest.xml
 8
 9</manifest>

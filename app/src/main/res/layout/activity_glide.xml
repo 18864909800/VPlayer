@@ -12,6 +12,12 @@
         android:layout_height="wrap_content"
         android:onClick="loadImage"
         android:text="Load Image" />
+    <Button
+        android:id="@+id/glideShowPhotoData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="loadPhotoData"
+        android:text="Load Image" />
 
     <ImageView
         android:id="@+id/image"

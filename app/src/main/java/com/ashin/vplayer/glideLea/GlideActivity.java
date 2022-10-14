@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.ashin.vplayer.R;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.model.GlideUrl;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
@@ -78,6 +79,34 @@ public class GlideActivity extends AppCompatActivity {
                 });
     }
 
+    public void loadPhotoData(View view) {
+        GlideUrl glideUrl = new GlideUrl(url);
+        PhotoData photoData = new PhotoData(glideUrl);
+        ProgressInterceptor.addListener(url, new ProgressListener() {
+            @Override
+            public void onProgress(int progress) {
+                progressDialog.setProgress(progress);
+            }
+        });
+        Glide.with(this)
+                .load(photoData)
+                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .into(new GlideDrawableImageViewTarget(image) {
+                    @Override
+                    public void onLoadStarted(Drawable placeholder) {
+                        super.onLoadStarted(placeholder);
+                        progressDialog.show();
+                    }
+
+                    @Override
+                    public void onResourceReady(GlideDrawable resource, GlideAnimation<? super GlideDrawable> animation) {
+                        super.onResourceReady(resource, animation);
+                        progressDialog.dismiss();
+                        ProgressInterceptor.removeListener(url);
+                    }
+                });
+    }
 
 
     public void onGlideButtonClick(View v) {
