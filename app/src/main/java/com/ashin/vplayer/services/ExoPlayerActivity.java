@@ -17,6 +17,9 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelector;
 
+/**
+ * @author ashin
+ */
 public class ExoPlayerActivity extends Activity {
     private static final String TAG="VP-ExoPlayerActivity";
     private SurfaceView mSurfaceView;

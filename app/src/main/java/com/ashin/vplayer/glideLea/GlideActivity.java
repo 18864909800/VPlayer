@@ -52,6 +52,8 @@ public class GlideActivity extends AppCompatActivity {
 //        });
     }
 
+
+
     public void loadImage(View view) {
         ProgressInterceptor.addListener(url, new ProgressListener() {
             @Override
@@ -59,10 +61,12 @@ public class GlideActivity extends AppCompatActivity {
                 progressDialog.setProgress(progress);
             }
         });
+
         Glide.with(this)
                 .load(url)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
+                .skipMemoryCache(true)
                 .into(new GlideDrawableImageViewTarget(image) {
                     @Override
                     public void onLoadStarted(Drawable placeholder) {
@@ -77,6 +81,8 @@ public class GlideActivity extends AppCompatActivity {
                         ProgressInterceptor.removeListener(url);
                     }
                 });
+
+
     }
 
     public void loadPhotoData(View view) {
@@ -91,6 +97,7 @@ public class GlideActivity extends AppCompatActivity {
         Glide.with(this)
                 .load(photoData)
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .skipMemoryCache(true)
                 .override(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL)
                 .into(new GlideDrawableImageViewTarget(image) {
                     @Override

@@ -3,43 +3,26 @@ package com.ashin.vplayer;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
-import android.os.Message;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.ashin.vplayer.Okhttp.OkhttpActivity;
-import com.ashin.vplayer.WindowsManager.WindowReceiver;
 import com.ashin.vplayer.glideLea.GlideActivity;
-import com.ashin.vplayer.listLearn.ListActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
 import com.ashin.vplayer.services.NanoHttp;
-//import com.ashin.vplayer.services.PlayerActivity;
-import com.ashin.vplayer.services.PlayerActivity;
 import com.ashin.vplayer.services.SmbActivity;
-import com.ashin.vplayer.services.TimerActivity;
-import com.ashin.vplayer.taskList.Task1Activity;
 import com.ashin.vplayer.utils.MyLifeCycleObserver;
 import com.ashin.vplayer.utils.NetFileUtil;
-import com.ashin.vplayer.utils.QRCodeUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
