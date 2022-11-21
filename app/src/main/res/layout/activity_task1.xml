@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/task1"
@@ -7,16 +7,39 @@
     android:layout_height="match_parent"
     tools:context=".taskList.Task1Activity">
 
-    <TextView
-        android:id="@+id/textview1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="任务一" />
 
-    <ImageView
-        android:id="@+id/image1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_gravity="center|left"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+
+            android:layout_marginBottom="15dp"
+
+            android:background="#14f111"
+            android:text="任务一" />
+
+        <FrameLayout
+            android:id="@+id/aa"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/black" />
+        </FrameLayout>
+        </LinearLayout>
+
+
 
     <ProgressBar
         android:id="@+id/processBar"
@@ -24,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:focusable="false"
-        android:visibility="gone"
-        android:indeterminate="true" />
+        android:indeterminate="true"
+        android:visibility="gone" />
 
-</RelativeLayout>
+</FrameLayout>

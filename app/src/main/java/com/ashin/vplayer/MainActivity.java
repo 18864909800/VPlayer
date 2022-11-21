@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.ashin.vplayer.barrage.BarrageActivity;
 import com.ashin.vplayer.glideLea.GlideActivity;
+import com.ashin.vplayer.matrix.MatrixActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
 import com.ashin.vplayer.services.NanoHttp;
@@ -84,7 +86,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button1:
-                intent = new Intent(MyApplication.getContextObject(), ExoPlayerActivity.class);
+              //  intent = new Intent(MyApplication.getContextObject(), ExoPlayerActivity.class);
+                intent = new Intent(MyApplication.getContextObject(), MatrixActivity.class);
                 startActivity(intent);
                 break;
             case R.id.button2:

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_change_color"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="50dp"
+    android:paddingLeft="50dp"
+    android:paddingRight="50dp"
+    android:paddingTop="50dp"
+    android:orientation="vertical"
+    tools:context="com.ashin.vplayer.matrix.MatrixActivity">
+
+    <ImageView
+        android:id="@+id/change_color_iv"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <SeekBar
+        android:id="@+id/hue_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="256"
+        android:progress="128"/>
+    <SeekBar
+        android:id="@+id/saturation_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="256"
+        android:progress="128"/>
+    <SeekBar
+        android:id="@+id/lum_seek_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="256"
+        android:progress="128"/>
+
+    <Button
+        android:id="@+id/old_time_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="怀旧风格"/>
+
+
+</LinearLayout>

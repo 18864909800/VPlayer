@@ -21,6 +21,20 @@
         android:theme="@style/Theme.VPlayer"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".matrix.MatrixActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".barrage.BarrageActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".glideLea.GlideActivity"
             android:exported="false">
             <meta-data
