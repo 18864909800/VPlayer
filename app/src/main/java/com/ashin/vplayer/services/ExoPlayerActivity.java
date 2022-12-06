@@ -60,6 +60,7 @@ public class ExoPlayerActivity extends Activity {
 
     @Override
     protected void onStop() {
+        super.onStop();
         TrackGroupArray currentTrackGroups = mExoplayer.getCurrentTrackGroups();
         TrackSelector trackSelector = mExoplayer.getTrackSelector();
 
@@ -73,11 +74,12 @@ public class ExoPlayerActivity extends Activity {
         DefaultTrackSelector defaultTrackSelector=new DefaultTrackSelector(this);
 
         MappingTrackSelector.MappedTrackInfo currentMappedTrackInfo = defaultTrackSelector.getCurrentMappedTrackInfo();
-        TrackGroupArray trackGroups = currentMappedTrackInfo.getTrackGroups(0);
-        TrackGroup trackGroup = trackGroups.get(0);
-        Log.d(TAG,"CCC"+trackGroup.getFormat(0));
+        if (currentMappedTrackInfo!=null){
+            TrackGroupArray trackGroups = currentMappedTrackInfo.getTrackGroups(0);
+            TrackGroup trackGroup = trackGroups.get(0);
+            Log.d(TAG,"CCC"+trackGroup.getFormat(0));
+        }
 
-        super.onStop();
         mExoplayer.stop();
     }
 

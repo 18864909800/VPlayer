@@ -114,5 +114,7 @@ public class NanoHttp extends NanoHTTPD {
         return result;
     }
 
-
+    public void stopServer(){
+        stop();
+    }
 }

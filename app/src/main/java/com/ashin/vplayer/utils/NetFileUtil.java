@@ -69,17 +69,9 @@ public class NetFileUtil {
             File file = new File(saveDir + File.separator + fileName);
             FileOutputStream fos = new FileOutputStream(file);
             fos.write(getData);
-            if (fos != null) {
-                fos.close();
-            }
-            if (inputStream != null) {
-                inputStream.close();
-            }
+            fos.close();
+            inputStream.close();
             Log.d(TAG, "info:" + url + " download success");
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

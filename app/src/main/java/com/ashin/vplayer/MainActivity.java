@@ -3,145 +3,104 @@ package com.ashin.vplayer;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.leanback.widget.ArrayObjectAdapter;
+import androidx.leanback.widget.FocusHighlightHelper;
+import androidx.leanback.widget.ItemBridgeAdapter;
+import androidx.leanback.widget.OnChildViewHolderSelectedListener;
+import androidx.leanback.widget.VerticalGridView;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.ashin.vplayer.Okhttp.OkhttpActivity;
+import com.ashin.vplayer.WindowsManager.WindowActivity;
 import com.ashin.vplayer.barrage.BarrageActivity;
 import com.ashin.vplayer.glideLea.GlideActivity;
+import com.ashin.vplayer.listLearn.ListActivity;
 import com.ashin.vplayer.matrix.MatrixActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
-import com.ashin.vplayer.services.NanoHttp;
-import com.ashin.vplayer.services.SmbActivity;
-import com.ashin.vplayer.utils.MyLifeCycleObserver;
-import com.ashin.vplayer.utils.NetFileUtil;
+import com.ashin.vplayer.smbnfs.SmbNfsActivity;
+import com.ashin.vplayer.utils.HPresenter;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private String TAG = "VP-MainActivity";
 
-    private Button button1;
-    private Button button2;
-    private Button button3;
-    private Button button4;
-    private Button button5;
-    private Button button6;
-    private Button button7;
-    private Button button8;
-    private TextView textView2;
-    Intent intent;
-
-    private NanoHttp nanoHttp;
-    private MyLifeCycleObserver myLifeCycleObserver;
-    private NetFileUtil netFileUtil;
-    private long downTime;
+    private VerticalGridView mButtonListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button1 = findViewById(R.id.button1);
-        button1.setOnClickListener(this);
-        button2 = findViewById(R.id.button2);
-        button2.setOnClickListener(this);
-        button3 = findViewById(R.id.button3);
-        button3.setOnClickListener(this);
-        button4 = findViewById(R.id.button4);
-        button4.setOnClickListener(this);
-        button5 = findViewById(R.id.button5);
-        button5.setOnClickListener(this);
-        button6 = findViewById(R.id.button6);
-        button6.setOnClickListener(this);
-        button7 = findViewById(R.id.button7);
-        button7.setOnClickListener(this);
-        button8 = findViewById(R.id.button8);
-        button8.setOnClickListener(this);
-        textView2 = findViewById(R.id.text2);
-        checkPermission();
-        try {
-            nanoHttp = new NanoHttp();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
+        mButtonListView=(VerticalGridView) findViewById(R.id.buttonList);
+        init();
+        checkPermission();
+    }
+
+    private void init(){
+        mButtonListView.setNumColumns(3);
+        mButtonListView.setVerticalSpacing(30);
+        mButtonListView.setOnChildViewHolderSelectedListener(new OnChildViewHolderSelectedListener() {
+            @Override
+            public void onChildViewHolderSelected(RecyclerView parent, RecyclerView.ViewHolder child, int position, int subposition) {
+                super.onChildViewHolderSelected(parent, child, position, subposition);
+                Log.d(TAG,"onChildViewHolderSelected position: "+position);
+            }
+
+            @Override
+            public void onChildViewHolderSelectedAndPositioned(RecyclerView parent, RecyclerView.ViewHolder child, int position, int subposition) {
+                super.onChildViewHolderSelectedAndPositioned(parent, child, position, subposition);
+                Log.d(TAG,"onChildViewHolderSelectedAndPositioned position: "+position);
+            }
+        });
+
+        HPresenter presenter =new HPresenter();
+        ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(presenter);
+        List<Class> itemList=new ArrayList<>();
+
+        itemList.add(MatrixActivity.class);
+        itemList.add(ExoPlayerActivity.class);
+        itemList.add(BarrageActivity.class);
+        itemList.add(GlideActivity.class);
+        itemList.add(ListActivity.class);
+        itemList.add(OkhttpActivity.class);
+        itemList.add(QRCodeActivity.class);
+        itemList.add(WindowActivity.class);
+        itemList.add(SmbNfsActivity.class);
+        arrayObjectAdapter.addAll(0,itemList);
+
+        ItemBridgeAdapter itemBridgeAdapter = new ItemBridgeAdapter(arrayObjectAdapter);
+        mButtonListView.setAdapter(itemBridgeAdapter);
+        mButtonListView.requestFocus();
+        //设置上焦动画
+        FocusHighlightHelper.setupHeaderItemFocusHighlight(itemBridgeAdapter);
     }
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button1:
-              //  intent = new Intent(MyApplication.getContextObject(), ExoPlayerActivity.class);
-                intent = new Intent(MyApplication.getContextObject(), MatrixActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.button2:
-                Log.d(TAG, "click button2");
-                netFileUtil = new NetFileUtil();
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        netFileUtil.setDownloadFinListener(new NetFileUtil.DownloadFinListener() {
-                            @Override
-                            public void onDownloadFinish(long time) {
-                                downTime = time;
-                                Log.d(TAG, "downTime: " + downTime);
-                            }
-                        });
-                        netFileUtil.downLoadFileFromNfs(); //6.539527092 mbps
-                        // netFileUtil.downFileByYaNfs();  //4.7818 mbps
-                        Looper.prepare();
-                        Toast.makeText(MyApplication.getContextObject(), "下载完成，时间为: " + downTime, Toast.LENGTH_LONG).show();
-                        Looper.loop();
-                    }
-                }).start();
-                break;
-            case R.id.button3:
-                intent = new Intent();
-                intent.setAction("mitv.mediaexplorer.action.LOCAL_VIDEO_PLAY");
-                JSONObject jsonObject = new JSONObject();
-                try {
-                    jsonObject.put("url", "http://localhost:25757/2.mp4");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                intent.putExtra("playInfo", jsonObject.toString());
-                startActivity(intent);
-                break;
-            case R.id.button4:
-                intent = new Intent(MyApplication.getContextObject(), SmbActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.button5:
-                intent = new Intent(MyApplication.getContextObject(), QRCodeActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.button6:
-                intent = new Intent(MyApplication.getContextObject(), GlideActivity.class);
-                startActivity(intent);
-                break;
-            case R.id.button7:
-                break;
-            case R.id.button8:
-                break;
-            default:
-                break;
-        }
+//                intent = new Intent();
+//                intent.setAction("mitv.mediaexplorer.action.LOCAL_VIDEO_PLAY");
+//                JSONObject jsonObject = new JSONObject();
+//                try {
+//                    jsonObject.put("url", "http://localhost:25757/2.mp4");
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                }
+//                intent.putExtra("playInfo", jsonObject.toString());
+//                startActivity(intent);
+//                break;
+
     }
 
 
