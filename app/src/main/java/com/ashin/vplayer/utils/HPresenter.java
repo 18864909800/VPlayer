@@ -1,6 +1,8 @@
 package com.ashin.vplayer.utils;
 
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -19,6 +21,11 @@ import java.util.List;
 
 public class HPresenter extends Presenter {
     private Context context;
+    private Activity mActivity;
+
+    public HPresenter(Activity activity) {
+        mActivity = activity;
+    }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
@@ -36,10 +43,12 @@ public class HPresenter extends Presenter {
         if (item != null) {
             button.setText(aClass.getSimpleName());
         }
+        button.setWidth(1000);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyApplication.getContextObject(), aClass);
+                //context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(mActivity).toBundle());
                 context.startActivity(intent);
             }
         });
