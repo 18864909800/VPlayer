@@ -24,11 +24,13 @@ import com.ashin.vplayer.Okhttp.OkhttpActivity;
 import com.ashin.vplayer.WindowsManager.WindowActivity;
 import com.ashin.vplayer.barrage.BarrageActivity;
 import com.ashin.vplayer.glideLea.GlideActivity;
+import com.ashin.vplayer.kotlin.KotlinActivity;
 import com.ashin.vplayer.listLearn.ListActivity;
 import com.ashin.vplayer.matrix.MatrixActivity;
 import com.ashin.vplayer.openGL.OpenGLActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
+import com.ashin.vplayer.services.VideoViewActivity;
 import com.ashin.vplayer.smbnfs.SmbNfsActivity;
 import com.ashin.vplayer.syncAdapter.SyncActivity;
 import com.ashin.vplayer.utils.HPresenter;
@@ -91,6 +93,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         itemList.add(SmbNfsActivity.class);
         itemList.add(OpenGLActivity.class);
         itemList.add(SyncActivity.class);
+        itemList.add(VideoViewActivity.class);
+        itemList.add(KotlinActivity.class);
         arrayObjectAdapter.addAll(0,itemList);
 
         ItemBridgeAdapter itemBridgeAdapter = new ItemBridgeAdapter(arrayObjectAdapter);

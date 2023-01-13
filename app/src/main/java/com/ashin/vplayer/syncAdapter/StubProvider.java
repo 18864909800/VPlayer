@@ -55,7 +55,7 @@ public class StubProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         //DatabaseHelper的参数分别为:上下文, 数据库名为BookStore.db, CursorFactory为null, 版本号为1
-        dbHelper = new DatabaseHelper(MyApplication.getContextObject(), "BookStore.db", null, 1);
+        dbHelper = new DatabaseHelper(MyApplication.getContextObject(), "BookStore.db", null, DatabaseHelper.DB_VERSION);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         String tableName = matchTableName(uri);
         db.insert(tableName, null, values);

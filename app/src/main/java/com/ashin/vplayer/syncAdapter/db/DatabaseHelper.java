@@ -14,6 +14,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TAG = "VP-DatabaseHelper";
     private Context mContext;
 
+    public static final int DB_VERSION = 3;
+
     public static final String TABLE_BOOK = "book";
 
 
@@ -21,6 +23,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String COLUMNS_PRICE = "price";
     public static final String COLUMNS_PAGE = "page";
     public static final String COLUMNS_NAME = "name";
+    //version 2
+    public static final String COLUMNS_TIME = "time";
+    //version 3
+    public static final String COLUMNS_OLD = "old";
 
     //我们希望创建一个名为BookStore.db的数据库, 然后在数据库中新建一张Book表, 其中有id(主键), 作者, 价格,页数和书名. SQL建表语句如下:
     /****
@@ -61,6 +67,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+        if (oldVersion < 2) {
+            String sql = "Alter table " + TABLE_BOOK + " add column " + COLUMNS_TIME + " TEXT ";
+            db.execSQL(sql);
+        }
+        if (oldVersion < 3) {
+            String sql = "Alter table " + TABLE_BOOK + " add column " + COLUMNS_OLD + " TEXT ";
+            db.execSQL(sql);
+        }
     }
 }
