@@ -15,6 +15,6 @@ class KotlinActivity : AppCompatActivity() {
 
     private fun init(text: String) {
        // kotlin_textview.setTextColor(11)
-
+        kotlin_textview.bringToFront();
     }
 }

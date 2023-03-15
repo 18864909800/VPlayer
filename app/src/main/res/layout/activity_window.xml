@@ -58,5 +58,12 @@
                 android:layout_weight="1"
                 android:focusable="true" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/window_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ddddd" />
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

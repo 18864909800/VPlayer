@@ -3,6 +3,12 @@ plugins {
 }
 
 android {
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+            jni.srcDirs = []
+        }
+    }
     compileSdk 31
 
     defaultConfig {
@@ -17,7 +23,12 @@ android {
 
     buildTypes {
         release {
+            // 混淆
             minifyEnabled false
+            // Zipalign优化
+            //zipAlignEnabled true
+            // 移除无用的resource
+            //shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -25,6 +36,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
 }
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android-extensions'

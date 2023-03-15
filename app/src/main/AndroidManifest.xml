@@ -31,6 +31,12 @@
         android:theme="@style/Theme.VPlayer"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ndk.AlipayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ndk.NdkCalActivity"
+            android:exported="false" />
+        <activity
             android:name=".kotlin.KotlinActivity"
             android:exported="false">
             <meta-data

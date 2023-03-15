@@ -5,6 +5,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
@@ -27,6 +28,8 @@ import com.ashin.vplayer.glideLea.GlideActivity;
 import com.ashin.vplayer.kotlin.KotlinActivity;
 import com.ashin.vplayer.listLearn.ListActivity;
 import com.ashin.vplayer.matrix.MatrixActivity;
+import com.ashin.vplayer.ndk.AlipayActivity;
+import com.ashin.vplayer.ndk.NdkCalActivity;
 import com.ashin.vplayer.openGL.OpenGLActivity;
 import com.ashin.vplayer.qrCode.QRCodeActivity;
 import com.ashin.vplayer.services.ExoPlayerActivity;
@@ -43,6 +46,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String TAG = "VP-MainActivity";
 
     private VerticalGridView mButtonListView;
+
+    static {
+        // 导入动态库
+        System.loadLibrary("hello");
+    }
+    public native String sayHello();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +104,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         itemList.add(SyncActivity.class);
         itemList.add(VideoViewActivity.class);
         itemList.add(KotlinActivity.class);
+        itemList.add(NdkCalActivity.class);
+        itemList.add(AlipayActivity.class);
         arrayObjectAdapter.addAll(0,itemList);
 
         ItemBridgeAdapter itemBridgeAdapter = new ItemBridgeAdapter(arrayObjectAdapter);
@@ -102,13 +113,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mButtonListView.requestFocus();
         //设置上焦动画
         FocusHighlightHelper.setupHeaderItemFocusHighlight(itemBridgeAdapter);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                SystemClock.sleep(2000);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(MainActivity.this,sayHello(),Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        }).start();
     }
 
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View view) {
 //                intent = new Intent();
-//                intent.setAction("mitv.mediaexplorer.action.LOCAL_VIDEO_PLAY");
+//                intent.setAction("");
 //                JSONObject jsonObject = new JSONObject();
 //                try {
 //                    jsonObject.put("url", "http://localhost:25757/2.mp4");

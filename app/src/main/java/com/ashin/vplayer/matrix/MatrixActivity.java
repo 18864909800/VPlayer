@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.ColorMatrix;
+import android.graphics.Matrix;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.os.Bundle;
@@ -38,7 +39,7 @@ public class MatrixActivity extends AppCompatActivity implements SeekBar.OnSeekB
         mLumSeekBar = (SeekBar) findViewById(R.id.lum_seek_bar);
 
         //获得图片资源
-        mBitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.matrix);
+        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.image);
         mChangeColorIv.setImageBitmap(mBitmap);
 
         //对seekBar设置监听
@@ -68,7 +69,8 @@ public class MatrixActivity extends AppCompatActivity implements SeekBar.OnSeekB
                 mChangeColorIv.setImageBitmap(bmp);
             }
         });
-
+        Matrix matrix=new Matrix();
+        boolean b = matrix.rectStaysRect();
 
     }
 
