@@ -15,5 +15,6 @@
 local.properties
 build/
 .idea/
-/NanoHTTPD/build
+/NanoHTTPD/build/
 /.idea/
+/NanoHTTPD/build
